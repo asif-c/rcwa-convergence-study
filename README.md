@@ -3,7 +3,7 @@
 A small, self-contained C++ program that simulates light passing through a
 diffraction grating using a simplified version of **Rigorous Coupled-Wave
 Analysis (RCWA)**, and shows how the answer becomes more accurate as you
-give the simulation more " numeric resolution."
+give the simulation more " numeric resolution".
 
 No external libraries are required, just a C++17 compiler.
 
