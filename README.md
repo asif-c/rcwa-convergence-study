@@ -3,22 +3,22 @@
 A small, self-contained C++ program that simulates light passing through a
 diffraction grating using a simplified version of **Rigorous Coupled-Wave
 Analysis (RCWA)**, and shows how the answer becomes more accurate as you
-give the simulation more "resolution."
+give the simulation more " numeric resolution."
 
-No external libraries are required — just a C++17 compiler.
+No external libraries are required, just a C++17 compiler.
 
 ## What is RCWA, in plain terms?
 
 Imagine shining a laser through a striped grating (alternating strips of
 glass and air, repeating like a fence). Some light goes straight through,
-some gets bent off at angles ("diffraction orders"). RCWA is a standard
-method in optics for calculating exactly how much light ends up in each
+some gets bent off at angles ("diffraction orders"). RCWA is a semi-analytical
+method in electrmagnetics for calculating exactly how much light ends up in each
 of those directions.
 
 To do the math, RCWA describes the grating's pattern as a sum of waves
 (a **Fourier series**) instead of a sharp on/off pattern. The more waves
 you include, the more faithfully the simulation represents the real
-grating — but each extra wave also makes the underlying matrix math
+grating, but each extra wave also makes the underlying matrix math
 bigger and slower. Finding the sweet spot between *accurate* and *fast*
 is called a **convergence study**, and that's what this program does.
 
@@ -36,7 +36,7 @@ is called a **convergence study**, and that's what this program does.
    (the "zeroth order" transmittance, `T0`).
 
 `main()` then repeats this for an increasing number of harmonics
-(1 through 18) and prints how `T0` settles down to a stable value —
+(1 through 18) and prints how `T0` settles down to a stable value:
 that's the convergence study.
 
 **Note on scope:** this is a simplified, educational single-layer,
@@ -66,7 +66,7 @@ if you want to extend this into a general-purpose simulator (see
 ```
 
 Each row uses more harmonics (and therefore a bigger matrix). Notice how
-the transmittance jumps around at first, then settles down — once the
+the transmittance jumps around at first, then settles down: once the
 change between rows drops below `1e-5`, the program marks it
 `<-- Converged`.
 
@@ -116,4 +116,4 @@ and the number of harmonics needed to reach it, change.
 
 ## License
 
-MIT — see [`LICENSE`](LICENSE).
+MIT, see [`LICENSE`](LICENSE).
